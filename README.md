@@ -1,6 +1,6 @@
 # README
 
-[![Codeship Status for dovakeen118/grocery-list](https://app.codeship.com/projects/57e4def0-8a58-0137-edd6-1a32725fe456/status?branch=master)](https://app.codeship.com/projects/354801)
+[![Codeship Status for dovakeen118/grocery-list](https://app.codeship.com/projects/f918eb20-8abc-0137-fe48-4a2b1c33cef4/status?branch=master)](https://app.codeship.com/projects/354863)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
