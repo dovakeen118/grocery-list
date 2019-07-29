@@ -1,13 +1,24 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<div class="callout primary">
+<div class="callout">
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="field">
+    <%= f.label :first_name, "First Name:" %>
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name:" %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -35,12 +46,16 @@
     <div class="actions">
       <%= f.submit "Update" %>
     </div>
+    
   <% end %>
 </div>
 
-<h3>Cancel my account</h3>
 <div class="callout">
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-</div>
+  <h3>Cancel my account</h3>
 
-<%= link_to "Back", :back %>
+  <div class="callout">
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  </div>
+
+  <%= link_to "Back", :back %>
+</div>
