@@ -3,7 +3,7 @@
     <h3><%= pluralize(resource.errors.count, "error") %> prevented this submission:</h3>
 
     <ul>
-      <% resource.errors.full_messages.each do |msg| %>
+      <% resource.errors.full_messages.reverse.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
