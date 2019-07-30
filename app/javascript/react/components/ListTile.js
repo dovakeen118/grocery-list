@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const ListTile = (props) => {
 
   return (
-    <h1>
+    <h3>
       <Link to={`/lists/${props.id}`}>{props.name}</Link>
-    </h1>
+    </h3>
   )
 }
 
