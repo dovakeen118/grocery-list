@@ -29,7 +29,6 @@ class ListContainer extends React.Component {
 
   render() {
     let lists = this.state.usersLists.map((list) => {
-      debugger
       return (
         <ListTile
           key={list.id}
