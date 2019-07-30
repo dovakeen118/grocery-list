@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  it {should have_many(:lists) }
+
   it { should have_valid(:first_name).when("John") }
   it { should_not have_valid(:first_name).when(nil, "") }
 

@@ -1,0 +1,7 @@
+<h1>Curated Lists by <%= @current_user.first_name %></h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= link_to "#{list.list_name}", list_path(list.id) %></li>
+  <% end %>
+</ul>
