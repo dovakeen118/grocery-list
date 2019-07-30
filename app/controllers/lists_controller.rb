@@ -1,10 +1,6 @@
 class ListsController < ApplicationController
   before_action :authorize_user
 
-  def index
-    @current_user = current_user
-    @lists = List.all
-  end
 
   private
 

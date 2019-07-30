@@ -3,6 +3,12 @@ class Api::V1::ListsController < ApplicationController
 
   before_action :authorize_user
 
+  def index
+    lists = current_user.lists
+
+    render json: lists
+  end
+
   def show
     list = List.find(params["id"])
 
