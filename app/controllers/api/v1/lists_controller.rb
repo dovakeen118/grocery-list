@@ -5,17 +5,30 @@ class Api::V1::ListsController < ApplicationController
 
   def index
     lists = current_user.lists
-
-    render json: lists
+    render json: { lists: lists, user: current_user }
   end
 
   def show
     list = List.find(params["id"])
-
     render json: list
   end
 
+  def create
+    list = List.new(new_list_params)
+    list.user = current_user
+
+    if list.save
+      render json: list
+    else
+      render json: { error: list.errors.full_messages }
+    end
+  end
+
   private
+
+  def new_list_params
+    params.require(:list).permit(:list_name)
+  end
 
   def authorize_user
     if !user_signed_in?
