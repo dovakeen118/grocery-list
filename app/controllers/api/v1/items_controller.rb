@@ -9,6 +9,10 @@ class Api::V1::ItemsController < ApplicationController
     list_for_item = List.find(params[:list_id])
     item.list = list_for_item
 
+    if item.quantity == nil || item.quantity == ""
+      item.quantity = 1
+    end
+
     if item.save
       render json: item
     else
@@ -19,7 +23,7 @@ class Api::V1::ItemsController < ApplicationController
   private
 
   def new_item_params
-    params.require(:item).permit(:item_name, :category)
+    params.require(:item).permit(:item_name, :category, :quantity)
   end
 
   def authorize_user

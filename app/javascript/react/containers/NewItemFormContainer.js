@@ -1,4 +1,5 @@
 import React from 'react'
+import NumericInput from 'react-numeric-input'
 
 import TextField from '../components/TextField'
 
@@ -7,6 +8,7 @@ class NewItemFormContainer extends React.Component {
     super(props)
     this.state = {
       newItem: "",
+      quantity: "",
       category: "",
       errors: {}
     }
@@ -15,6 +17,7 @@ class NewItemFormContainer extends React.Component {
     this.validateCategoryChange = this.validateCategoryChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
+    this.handleQuantityChange = this.handleQuantityChange.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -52,8 +55,12 @@ class NewItemFormContainer extends React.Component {
     this.setState({ category: event.target.value })
   }
 
+  handleQuantityChange(event) {
+    this.setState({ quantity: event })
+  }
+
   handleClearForm() {
-    this.setState({ newItem: "" })
+    this.setState({ newItem: "", quantity: "", category: "" })
   }
 
   handleSubmit(event) {
@@ -64,7 +71,8 @@ class NewItemFormContainer extends React.Component {
     ) {
       let newItemObject = {
         item_name: this.state.newItem,
-        category: this.state.category
+        category: this.state.category,
+        quantity: this.state.quantity
       }
       this.props.addNewItem(newItemObject)
       this.handleClearForm(event)
@@ -114,6 +122,16 @@ class NewItemFormContainer extends React.Component {
             value={this.state.newItem}
             handleChange={this.handleChange}
           />
+
+          <label>Item Quantity:
+            <NumericInput
+              className="form-control"
+              min={1}
+              max={50}
+              value={this.state.quantity}
+              onChange={this.handleQuantityChange}
+            />
+          </label>
 
           <label>Item Category:
             <select value={this.state.category} onChange={this.handleCategoryChange}>

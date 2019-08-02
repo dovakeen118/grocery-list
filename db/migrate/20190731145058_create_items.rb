@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
 
       t.string :item_name, null: false, defualt: ""
       t.string :category, null: false, default: ""
-      t.integer :quantity, default: 0
+      t.integer :quantity, default: 1
       t.string :aisle, default: ""
       t.integer :price, default: 0
 
