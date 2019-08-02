@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ListTextField from '../components/ListTextField'
+import TextField from '../components/TextField'
 
 class NewListFormContainer extends React.Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class NewListFormContainer extends React.Component {
 
           {errorDiv}
 
-          <ListTextField
+          <TextField
             label="New List Name:"
             name="listName"
             value={this.state.listName}

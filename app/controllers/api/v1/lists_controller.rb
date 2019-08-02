@@ -10,7 +10,9 @@ class Api::V1::ListsController < ApplicationController
 
   def show
     list = List.find(params["id"])
-    render json: list
+    items = list.items
+
+    render json: { list: list, items: items }
   end
 
   def create
