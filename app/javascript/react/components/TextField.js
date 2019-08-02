@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListTextField = (props) => {
+const TextField = (props) => {
 
   return (
     <label>{props.label}
@@ -14,4 +14,4 @@ const ListTextField = (props) => {
   )
 }
 
-export default ListTextField
+export default TextField
