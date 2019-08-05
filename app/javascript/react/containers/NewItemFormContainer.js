@@ -19,6 +19,7 @@ class NewItemFormContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
+    this.handleMeasurementChange = this.handleMeasurementChange.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -61,7 +62,7 @@ class NewItemFormContainer extends React.Component {
   }
 
   handleMeasurementChange(event) {
-    this.setState({ measurement: event })
+    this.setState({ measurement: event.target.value })
   }
 
   handleClearForm() {
@@ -145,28 +146,33 @@ class NewItemFormContainer extends React.Component {
             handleChange={this.handleChange}
           />
 
-          <label>Item Quantity:
-            <NumericInput
-              className="form-control"
-              min={1}
-              max={50}
-              value={this.state.quantity}
-              onChange={this.handleQuantityChange}
-            />
-          </label>
-
-          <label>Quantity Measurement:
-            <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
-              {quantityOptions}
-            </select>
-          </label>
-
           <label>Item Category:
             <select value={this.state.category} onChange={this.handleCategoryChange}>
               <option>Please select a category</option>
               {categoryOptions}
             </select>
           </label>
+
+          <div className="quantity">
+            <label>Item Quantity:
+              <NumericInput
+                className="form-control"
+                min={1}
+                max={50}
+                value={this.state.quantity}
+                onChange={this.handleQuantityChange}
+              />
+            </label>
+          </div>
+
+          <div className="measurement">
+            <label>Quantity Measurement:
+              <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
+                <option>Optional</option>
+                {quantityOptions}
+              </select>
+            </label>
+          </div>
 
           <input className="button" type="submit" value="Add New item" />
         </form>

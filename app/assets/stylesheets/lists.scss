@@ -12,7 +12,7 @@ h1 {
 
 .lists {
   margin: auto;
-  
+
   .callout.list {
     font-family: 'Quicksand';
     max-width: 650px;
@@ -51,18 +51,19 @@ h1 {
 
     h3 {
       text-align: left;
-    }
 
-    a {
-      font-family: 'Quicksand';
-    }
+      a {
+        font-family: 'Quicksand';
+        font-size: 24px;
+      }
 
-    a:link {
-      color: $orange;
-    }
+      a:link {
+        color: $orange;
+      }
 
-    i {
-      margin-right: 10px;
+      i {
+        margin-right: 10px;
+      }
     }
   }
 }
