@@ -1,7 +1,5 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
-    <h3><%= pluralize(resource.errors.count, "error") %> prevented this submission:</h3>
-
     <ul>
       <% resource.errors.full_messages.reverse.each do |msg| %>
         <li><%= msg %></li>

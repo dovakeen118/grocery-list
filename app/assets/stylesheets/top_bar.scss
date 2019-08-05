@@ -1,0 +1,85 @@
+@import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+.top-bar {
+  background-color: $med-green;
+  font-family: 'Quicksand';
+
+  .menu {
+    background-color: $med-green;
+
+    a {
+      padding: 0px;
+
+      img {
+        max-height: 100px;
+      }
+    }
+  }
+
+  .links {
+    font-size: 24px;
+
+    li.log {
+      a {
+        padding: 10px;
+        color: $beige;
+      }
+
+      a:hover {
+        color: $peach;
+      }
+    }
+
+    li.new {
+      background-color: $orange;
+      border-radius: 50px;
+      margin-left: 10px;
+
+      a {
+        padding: 10px;
+        color: $beige;
+      }
+
+      a:hover {
+        color: $beige;
+        font-weight: bold;
+      }
+    }
+  }
+
+  ul.dropdown.menu {
+    margin-right: 20px;
+
+    a {
+      font-size: 24px;
+      color: $beige;
+    }
+
+    a:hover {
+      color: $peach;
+    }
+
+    a::after {
+      border-color: $beige transparent transparent;
+    }
+
+    ul.submenu {
+      background-color: $med-green;
+      font-size: 20px;
+
+      a {
+        padding: 10px;
+        margin: 5px;
+      }
+
+      a:visited {
+        color: $beige;
+      }
+
+      a:hover {
+        color: $peach;
+      }
+    }
+  }
+}

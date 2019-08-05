@@ -8,8 +8,9 @@ class NewItemFormContainer extends React.Component {
     super(props)
     this.state = {
       newItem: "",
-      quantity: "",
       category: "",
+      quantity: "1",
+      measurement: "",
       errors: {}
     }
 
@@ -59,8 +60,12 @@ class NewItemFormContainer extends React.Component {
     this.setState({ quantity: event })
   }
 
+  handleMeasurementChange(event) {
+    this.setState({ measurement: event })
+  }
+
   handleClearForm() {
-    this.setState({ newItem: "", quantity: "", category: "" })
+    this.setState({ newItem: "", quantity: "1", measurement: "", category: "" })
   }
 
   handleSubmit(event) {
@@ -72,7 +77,8 @@ class NewItemFormContainer extends React.Component {
       let newItemObject = {
         item_name: this.state.newItem,
         category: this.state.category,
-        quantity: this.state.quantity
+        quantity: this.state.quantity,
+        measurement: this.state.measurement
       }
       this.props.addNewItem(newItemObject)
       this.handleClearForm(event)
@@ -95,19 +101,35 @@ class NewItemFormContainer extends React.Component {
       "Vegetables",
       "Dairy",
       "Grains",
-      "Red Meat",
       "White Meat/ Poultry",
+      "Red Meat",
       "Seafood",
       "Legumes/ Nuts",
-      "Canned Food",
       "Snacks",
-      "Beverages",
-      "Frozen",
       "Herbs/ Seasoning/ Spices",
+      "Beverages",
+      "Canned Food",
+      "Frozen",
       "Miscellaneous"]
+
+    let quantities = [
+      "Package",
+      "Can(s)",
+      "Cup(s)",
+      "Ounce(s)",
+      "Gallon(s)",
+      "Pint(s)",
+      "Quart(s)",
+      "Pound(s)",
+      "Dozen"
+    ]
 
     let categoryOptions = categories.map((category) => {
       return(<option key={category} value={category}>{category}</option>)
+    })
+
+    let quantityOptions = quantities.map((quantity) => {
+      return(<option key={quantity} value={quantity}>{quantity}</option>)
     })
 
     return(
@@ -133,6 +155,12 @@ class NewItemFormContainer extends React.Component {
             />
           </label>
 
+          <label>Quantity Measurement:
+            <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
+              {quantityOptions}
+            </select>
+          </label>
+
           <label>Item Category:
             <select value={this.state.category} onChange={this.handleCategoryChange}>
               <option>Please select a category</option>
@@ -140,7 +168,7 @@ class NewItemFormContainer extends React.Component {
             </select>
           </label>
 
-          <input className="button" type="submit" value="Submit" />
+          <input className="button" type="submit" value="Add New item" />
         </form>
       </div>
     )

@@ -1,0 +1,116 @@
+@import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light|Quicksand&display=swap');
+
+.callout.user {
+  max-width: 600px;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  padding: 30px;
+
+  h2, h3 {
+    font-family: 'Shadows Into Light';
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  p {
+    font-family: 'Quicksand';
+    font-size: 20px;
+    text-align: center;
+  }
+
+  label {
+    font-family: 'Quicksand';
+    font-size: 20px;
+  }
+
+  .field.name {
+    width: 250px;
+    display: inline-grid;
+  }
+  .field.last.name {
+    width: 250px;
+    display: inline-grid;
+    float: right;
+  }
+
+  .field.remember {
+    max-width: 300px;
+    display: inline-block;
+  }
+
+  .forgot-password {
+    max-width: 300px;
+    display: inline-block;
+    float: right;
+  }
+
+  .devise-link {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  a {
+    font-family: 'Quicksand';
+    font-size: 20px;
+  }
+
+  a:visited {
+    color: $orange;
+  }
+
+
+  .actions {
+    max-width: 250px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    border: 0px;
+    text-align: center;
+
+    input {
+      background-color: $orange;
+      font-family: 'Quicksand';
+      font-size: 20px;
+      max-width: 250px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    input:hover {
+      font-weight: bold;
+    }
+  }
+
+  .links {
+    margin-top: 30px;
+    text-align: center;
+
+    a {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  .cancel {
+    font-size: 20px;
+    max-width: 250px;
+    display: block;
+    margin: auto;
+
+    input {
+      font-family: 'Quicksand';
+      background-color: $orange;
+      width: 250px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}

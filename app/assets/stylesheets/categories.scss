@@ -1,0 +1,70 @@
+@import 'colors';
+
+.Fruit {
+  background-image: image-url('categories/fruit.jpg');
+  background-repeat: no-repeat;
+}
+
+.Vegetables {
+  background-image: image-url('categories/vegetables.jpg');
+  background-repeat: no-repeat;
+}
+
+.Dairy {
+  background-image: image-url('categories/dairy.jpg');
+  background-repeat: no-repeat;
+}
+
+.Grains {
+  background-image: image-url('categories/bread.jpg');
+  background-repeat: no-repeat;
+}
+
+.Poultry {
+  background-image: image-url('categories/white-meat.jpg');
+  background-repeat: no-repeat;
+}
+
+.Red.Meat {
+  background-image: image-url('categories/red-meat.jpg');
+  background-repeat: no-repeat;
+}
+
+.Seafood {
+  background-image: image-url('categories/seafood.jpg');
+  background-repeat: no-repeat;
+}
+
+.Nuts {
+  background-image: image-url('categories/legumes.jpg');
+  background-repeat: no-repeat;
+}
+
+.Snacks {
+  background-image: image-url('categories/snacks.jpg');
+  background-repeat: no-repeat;
+}
+
+.Spices {
+  background-image: image-url('categories/spices.jpg');
+  background-repeat: no-repeat;
+}
+
+.Beverages {
+  background-image: image-url('categories/beverages.jpg');
+  background-repeat: no-repeat;
+}
+
+.Canned {
+  background-image: image-url('categories/cans.jpg');
+  background-repeat: no-repeat;
+}
+
+.Frozen {
+ background-image: image-url('categories/freezer.jpg');
+ background-repeat: no-repeat;
+}
+
+.Miscellaneous {
+  background-color: $purple;
+}
