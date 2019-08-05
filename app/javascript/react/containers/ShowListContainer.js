@@ -66,15 +66,15 @@ class ShowListContainer extends React.Component {
       "Vegetables",
       "Dairy",
       "Grains",
-      "Red Meat",
       "White Meat/ Poultry",
+      "Red Meat",
       "Seafood",
       "Legumes/ Nuts",
-      "Canned Food",
       "Snacks",
-      "Beverages",
-      "Frozen",
       "Herbs/ Seasoning/ Spices",
+      "Beverages",
+      "Canned Food",
+      "Frozen",
       "Miscellaneous"]
 
     let items = this.state.items
@@ -94,16 +94,20 @@ class ShowListContainer extends React.Component {
     })
 
     return(
-      <div>
+      <div className="list-show">
         <h1>{listName}</h1>
 
-        <div className="callout primary">
-          <NewItemFormContainer
-            addNewItem={this.addNewItem}
-          />
-        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="callout show cell small-12 large-6">
+            <NewItemFormContainer
+              addNewItem={this.addNewItem}
+            />
+          </div>
 
-        {categoryTiles}
+          <div className="items cell small-12 large-6">
+            {categoryTiles}
+          </div>
+        </div>
 
       </div>
     )

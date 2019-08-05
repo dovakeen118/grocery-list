@@ -70,19 +70,22 @@ class ListContainer extends React.Component {
     })
 
     return(
-      <div>
+      <div className="lists">
         <h1>Curated Lists by {user}</h1>
 
-        <div className="callout primary">
-          <h2>Start a New List</h2>
+        <div className="grid-x grid-margin-x">
+          <div className="callout list new cell small-12 large-6">
+            <h2>Start a New Grocery List</h2>
 
-          <NewListFormContainer
-            addNewList={this.addNewList}
-          />
-        </div>
+            <NewListFormContainer
+              addNewList={this.addNewList}
+            />
+          </div>
 
-        <div>
-          {lists}
+          <div className="callout list user cell small-12 large-auto">
+            {lists}
+          </div>
+
         </div>
       </div>
     )
