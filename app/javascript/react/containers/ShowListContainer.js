@@ -12,6 +12,7 @@ class ShowListContainer extends React.Component {
     }
 
     this.addNewItem = this.addNewItem.bind(this)
+    this.handleItemEdit = this.handleItemEdit.bind(this)
   }
 
   componentDidMount() {
@@ -58,8 +59,14 @@ class ShowListContainer extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  handleItemEdit(event) {
+
+  }
+
   render() {
     let listName = this.state.selectedList
+
+    let items = this.state.items
 
     let categories = [
       "Fruit",
@@ -77,17 +84,16 @@ class ShowListContainer extends React.Component {
       "Frozen",
       "Miscellaneous"]
 
-    let items = this.state.items
-
     let categoryTiles = categories.map((category) => {
       let categoryItems = items.filter(item => item.category === category)
 
       if(categoryItems.length > 0) {
         return(
           <CategoryTile
-          key={category}
-          name={category}
-          value={categoryItems}
+            key={category}
+            name={category}
+            value={categoryItems}
+            handleItemEdit={this.handleItemEdit}
           />
         )
       }

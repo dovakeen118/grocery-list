@@ -26,6 +26,17 @@ class Api::V1::ListsController < ApplicationController
     end
   end
 
+  def update
+    list_to_update = List.find(params["id"])
+    list_to_update.list_name = new_list_params[:list_name]
+
+    if list_to_update.save
+      render json: list_to_update
+    else
+      render json: { error: list_to_update.errors.full_messages }
+    end
+  end
+
   private
 
   def new_list_params

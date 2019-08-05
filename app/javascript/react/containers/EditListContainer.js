@@ -2,16 +2,22 @@ import React from 'react'
 
 import TextField from '../components/TextField'
 
-class NewListFormContainer extends React.Component {
+class EditListContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       listName: "",
+      listId: "",
       errors: {}
     }
     this.validateNameChange = this.validateNameChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({ listName: this.props.list.name })
+    this.setState({ listId: this.props.list.id })
   }
 
   validateNameChange(input) {
@@ -38,10 +44,11 @@ class NewListFormContainer extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if ( this.validateNameChange(this.state.listName) ) {
-      let newListObject = {
-        list_name: this.state.listName
+      let updatedListObject = {
+        list_name: this.state.listName,
+        list_id: this.state.listId
       }
-      this.props.addNewList(newListObject)
+      this.props.handleUpdateList(updatedListObject)
       this.handleClearForm(event)
     }
   }
@@ -59,14 +66,14 @@ class NewListFormContainer extends React.Component {
 
     return (
       <div>
-        <h2>Start a New Grocery List</h2>
+        <h2 className="edit-list">Update this Grocery List</h2>
 
         <form onSubmit={this.handleSubmit}>
 
           {errorDiv}
 
           <TextField
-            label="New List Name:"
+            label="Edit List Name:"
             name="listName"
             value={this.state.listName}
             handleChange={this.handleChange}
@@ -79,4 +86,4 @@ class NewListFormContainer extends React.Component {
   }
 }
 
-export default NewListFormContainer
+export default EditListContainer
