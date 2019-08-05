@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_145058) do
     t.string "item_name", null: false
     t.string "category", default: "", null: false
     t.integer "quantity", default: 1
+    t.string "measurement", default: ""
     t.string "aisle", default: ""
     t.integer "price", default: 0
     t.datetime "created_at", null: false
