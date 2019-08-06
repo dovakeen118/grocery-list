@@ -66,20 +66,20 @@ class EditListContainer extends React.Component {
 
     return (
       <div>
-        <h2 className="edit-list">Update this Grocery List</h2>
+        <h2 className="edit-list">Edit Grocery List</h2>
 
         <form onSubmit={this.handleSubmit}>
 
           {errorDiv}
 
           <TextField
-            label="Edit List Name:"
+            label="List Name:"
             name="listName"
             value={this.state.listName}
             handleChange={this.handleChange}
           />
 
-          <input className="button" type="submit" value="Submit" />
+          <input className="button update" type="submit" value="Update" />
         </form>
       </div>
     )

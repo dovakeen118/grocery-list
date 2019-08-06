@@ -7,14 +7,25 @@ const ListTile = (props) => {
 
   if(props.editState && props.editList.id === props.id) {
     editClass = "edit-list"
-    editMessage = " - Edit list in form . . ."
+    editMessage = " - Update list in form . . ."
   }
 
   return (
     <h3>
       <i className="fa fa-caret-right"></i>
-      <Link to={`/lists/${props.id}`} className={editClass}>{props.name} {editMessage}</Link>
-      <i onClick={() => { props.toggleListEdit({ id: props.id, name: props.name,  }) } } className="fa fa-edit"></i>
+
+      <Link to={`/lists/${props.id}`} className={editClass}>
+        {props.name} {editMessage}
+      </Link>
+
+      <i className="fa fa-edit"
+        onClick={ () => { props.toggleListEdit({ id: props.id, name: props.name  }) } }
+        data-tooltip tabIndex="1"
+        title={`Edit ${props.name}`}
+        data-position="bottom"
+        data-alignment="right">
+      </i>
+
       <hr/>
     </h3>
   )

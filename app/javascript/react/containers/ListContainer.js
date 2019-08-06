@@ -74,7 +74,7 @@ class ListContainer extends React.Component {
   }
 
   handleUpdateList(updatedListObject) {
-    let listId = updatedListObject.list_id
+    let listId = updatedListObject.list_id;
     fetch(`/api/v1/lists/${listId}`, {
       credentials: "same-origin",
       method: "PATCH",
@@ -110,8 +110,8 @@ class ListContainer extends React.Component {
           id={list.id}
           name={list.list_name}
           toggleListEdit={this.toggleListEdit}
-          editState={this.state.editing}
           editList={this.state.listToEdit}
+          editState={this.state.editing}
         />
       )
     })
@@ -121,8 +121,8 @@ class ListContainer extends React.Component {
     if(this.state.editing) {
       listForm = (
         <EditListContainer
-        list={this.state.listToEdit}
-        handleUpdateList={this.handleUpdateList}
+          list={this.state.listToEdit}
+          handleUpdateList={this.handleUpdateList}
         />
       )
     } else {
