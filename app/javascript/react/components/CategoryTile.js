@@ -16,7 +16,13 @@ const CategoryTile = (props) => {
           data-alignment="right">
         </i>
 
-        <i className="fa fa-minus-square"></i>
+        <i className="fa fa-minus-square"
+          onClick={ () => { props.confirmItemDelete({ item }) } }
+          data-tooltip tabIndex="1"
+          title={`Delete ${item.item_name}`}
+          data-position="bottom"
+          data-alignment="right">
+        </i>
       </p>
     )
   })

@@ -28,7 +28,7 @@ const ListTile = (props) => {
       </i>
 
       <i className="fa fa-minus-square"
-        onClick={ () => { props.confirmDelete({ props }) } }
+        onClick={ () => { props.confirmListDelete({ props }) } }
         data-tooltip tabIndex="1"
         title={`Delete ${props.name}`}
         data-position="bottom"

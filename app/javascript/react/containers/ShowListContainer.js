@@ -18,6 +18,7 @@ class ShowListContainer extends React.Component {
     this.toggleItemEdit = this.toggleItemEdit.bind(this)
     this.handleUpdateItem = this.handleUpdateItem.bind(this)
     this.loadContent = this.loadContent.bind(this)
+    this.confirmItemDelete = this.confirmItemDelete.bind(this)
   }
 
   componentDidMount() {
@@ -101,6 +102,25 @@ class ShowListContainer extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  confirmItemDelete(event) {
+    if( window.confirm("Are you sure you want to delete this list?") ) {
+      let itemId = event.item.id
+      let listId = event.item.list_id
+      fetch(`/api/v1/lists/${listId}/items/${itemId}`, {
+        credentials: 'same-origin',
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then((responseBody) => {
+        this.loadContent()
+      })
+    }
+  }
+
   render() {
     let listName = this.state.selectedList
     let items = this.state.items
@@ -131,6 +151,7 @@ class ShowListContainer extends React.Component {
             value={categoryItems}
             toggleItemEdit={this.toggleItemEdit}
             editState={this.state.editing}
+            confirmItemDelete={this.confirmItemDelete}
           />
         )
       }
