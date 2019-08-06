@@ -114,24 +114,29 @@ class NewItemFormContainer extends React.Component {
       "Frozen",
       "Miscellaneous"]
 
-    let quantities = [
-      "Can(s)",
-      "Cup(s)",
+    let measurements = [
+      "Can",
+      "Cup",
       "Dozen",
-      "Gallon(s)",
-      "Ounce(s)",
-      "Package(s)",
-      "Pint(s)",
-      "Pound(s)",
-      "Quart(s)"
+      "Gallon",
+      "Ounce",
+      "Package",
+      "Pint",
+      "Pound",
+      "Quart"
     ]
 
     let categoryOptions = categories.map((category) => {
       return(<option key={category} value={category}>{category}</option>)
     })
 
-    let quantityOptions = quantities.map((quantity) => {
-      return(<option key={quantity} value={quantity}>{quantity}</option>)
+    let measurementOptions = measurements.map((measurement) => {
+      if(this.state.quantity > 1) {
+        measurement = measurement.concat("s")
+        return(<option key={measurement} value={measurement}>{measurement}</option>)
+      } else {
+        return(<option key={measurement} value={measurement}>{measurement}</option>)
+      }
     })
 
     return(
@@ -170,7 +175,7 @@ class NewItemFormContainer extends React.Component {
             <label>Quantity Measurement:
               <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
                 <option>Optional</option>
-                {quantityOptions}
+                {measurementOptions}
               </select>
             </label>
           </div>

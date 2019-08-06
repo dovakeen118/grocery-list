@@ -36,6 +36,7 @@
 
     input.button {
       background-color: $orange;
+      border: 1px solid rgba(10, 10, 10, 0.25);
       color: black;
       font-size: 24px;
       width: 200px;
@@ -73,15 +74,21 @@
         font-family: 'Quicksand';
         font-size: 20px;
         list-style: none;
-
-        i.fa.fa-caret-right {
-          float: left;
-          padding: 10px;
-          padding-top: 5px;
-        }
+        display: block;
 
         i {
           float: right;
+          cursor: pointer;
+          margin: 10px;
+        }
+
+        i.fa.fa-caret-right {
+          float: left;
+          margin-top: 7px;
+        }
+
+        i.fa-edit:hover, i.fa-minus-square:hover {
+          font-weight: bold;
         }
       }
     }

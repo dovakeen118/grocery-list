@@ -33,7 +33,19 @@ class Api::V1::ItemsController < ApplicationController
     else
       render json: { error: item_to_update.errors.full_messages }
     end
+  end
 
+  def destroy
+    item = Item.find(params["id"])
+    list = List.find(params["list_id"])
+
+    if current_user.id == item.list.user_id
+      item.destroy
+      list_items = list.items
+      render json: list_items
+    else
+      render json: { error: item.errors.full_messages }
+    end
   end
 
   private
