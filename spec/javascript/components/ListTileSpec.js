@@ -16,10 +16,6 @@ describe('List Tile', () => {
     );
   });
 
-  it("Should render an h3 tag containing the list name", () => {
-    expect(wrapper.find("h3").text()).toEqual("Whole Foods")
-  });
-
   it("Should render a link to the show page for that list", () => {
     expect(wrapper.find("Link").props()["to"]).toBe("/lists/1")
   });

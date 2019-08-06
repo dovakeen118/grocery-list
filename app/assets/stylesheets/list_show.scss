@@ -48,9 +48,6 @@
     }
   }
 
-  .items {
-  }
-
   .callout.items {
     max-width: 650px;
     margin: auto;
@@ -75,6 +72,10 @@
       li {
         font-family: 'Quicksand';
         font-size: 20px;
+
+        i {
+          float: right;
+        }
       }
     }
   }

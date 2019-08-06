@@ -24,8 +24,13 @@ h1 {
       font-family: 'Quicksand';
     }
 
+    h2.edit-list {
+      font-weight: bold;
+    }
+
     label {
       font-size: 20px;
+      font-weight: bold;
     }
 
     input.button {
@@ -52,6 +57,10 @@ h1 {
     h3 {
       text-align: left;
 
+      i {
+        margin-right: 10px;
+      }
+
       a {
         font-family: 'Quicksand';
         font-size: 24px;
@@ -61,8 +70,17 @@ h1 {
         color: $orange;
       }
 
-      i {
-        margin-right: 10px;
+      a.edit-list {
+        font-style: italic;
+      }
+
+      i.fa-edit {
+        float: right;
+        cursor: pointer;
+      }
+
+      i.fa-edit:hover {
+        font-weight: bold;
       }
     }
   }

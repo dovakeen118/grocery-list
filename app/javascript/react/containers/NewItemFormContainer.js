@@ -23,6 +23,7 @@ class NewItemFormContainer extends React.Component {
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
   validateNameChange(input) {
     if(input.trim() == '') {
       let newError = { newItem: "You must enter a item name"}
