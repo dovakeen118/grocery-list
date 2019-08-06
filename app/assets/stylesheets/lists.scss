@@ -74,14 +74,18 @@ h1 {
         font-style: italic;
       }
 
-      i.fa-edit {
+      i.fa-edit, i.fa-minus-square {
         float: right;
         cursor: pointer;
       }
 
-      i.fa-edit:hover {
+      i.fa-edit:hover, i.fa-minus-square:hover {
         font-weight: bold;
       }
+    }
+
+    h3.empty-lists {
+      text-align: center;
     }
   }
 }

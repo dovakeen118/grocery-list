@@ -130,15 +130,15 @@ class EditItemContainer extends React.Component {
       "Miscellaneous"]
 
     let quantities = [
-      "Package",
       "Can(s)",
       "Cup(s)",
-      "Ounce(s)",
+      "Dozen",
       "Gallon(s)",
+      "Ounce(s)",
+      "Package(s)",
       "Pint(s)",
-      "Quart(s)",
       "Pound(s)",
-      "Dozen"
+      "Quart(s)"
     ]
 
     let categoryOptions = categories.map((category) => {

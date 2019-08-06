@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ListTile = (props) => {
+
   let editClass;
   let editMessage;
 
@@ -26,6 +27,13 @@ const ListTile = (props) => {
         data-alignment="right">
       </i>
 
+      <i className="fa fa-minus-square"
+        onClick={ () => { props.confirmDelete({ props }) } }
+        data-tooltip tabIndex="1"
+        title={`Delete ${props.name}`}
+        data-position="bottom"
+        data-alignment="right">
+      </i>
       <hr/>
     </h3>
   )
