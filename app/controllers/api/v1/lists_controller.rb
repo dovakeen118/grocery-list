@@ -11,7 +11,6 @@ class Api::V1::ListsController < ApplicationController
   def show
     list = List.find(params["id"])
     items = list.items
-
     render json: { list: list, items: items }
   end
 
@@ -34,6 +33,18 @@ class Api::V1::ListsController < ApplicationController
       render json: list_to_update
     else
       render json: { error: list_to_update.errors.full_messages }
+    end
+  end
+
+  def destroy
+    list = List.find(params["id"])
+
+    if current_user.id == list.user_id
+      list.destroy
+      lists = current_user.lists
+      render json: { lists: lists, user: current_user }
+    else
+      render json: { list: list, error: list.errors.full_messages }
     end
   end
 

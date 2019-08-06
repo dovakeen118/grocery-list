@@ -69,9 +69,16 @@
     ul {
       margin-top: 20px;
 
-      li {
+      p {
         font-family: 'Quicksand';
         font-size: 20px;
+        list-style: none;
+
+        i.fa.fa-caret-right {
+          float: left;
+          padding: 10px;
+          padding-top: 5px;
+        }
 
         i {
           float: right;

@@ -18,6 +18,7 @@ class ListContainer extends React.Component {
     this.addNewList = this.addNewList.bind(this)
     this.toggleListEdit = this.toggleListEdit.bind(this)
     this.handleUpdateList = this.handleUpdateList.bind(this)
+    this.confirmDelete = this.confirmDelete.bind(this)
   }
 
   componentDidMount() {
@@ -69,8 +70,7 @@ class ListContainer extends React.Component {
   }
 
   toggleListEdit(event) {
-    this.setState({ editing: true })
-    this.setState({ listToEdit: event })
+    this.setState({ editing: true, listToEdit: event })
   }
 
   handleUpdateList(updatedListObject) {
@@ -100,21 +100,46 @@ class ListContainer extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  confirmDelete(event) {
+    if( window.confirm("Are you sure you want to delete this list?") ) {
+      let listId = event.props.id
+      fetch(`api/v1/lists/${listId}`, {
+        credentials: 'same-origin',
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then((responseBody) => {
+        this.loadContent()
+      })
+    }
+  }
+
+
   render() {
     let user = this.state.user.first_name
 
-    let lists = this.state.lists.map((list) => {
-      return (
-        <ListTile
-          key={list.id}
-          id={list.id}
-          name={list.list_name}
-          toggleListEdit={this.toggleListEdit}
-          editList={this.state.listToEdit}
-          editState={this.state.editing}
-        />
-      )
-    })
+    let lists = this.state.lists
+    if(lists.length > 0) {
+      lists = this.state.lists.map((list) => {
+        return (
+          <ListTile
+            key={list.id}
+            id={list.id}
+            name={list.list_name}
+            toggleListEdit={this.toggleListEdit}
+            editList={this.state.listToEdit}
+            editState={this.state.editing}
+            confirmDelete={this.confirmDelete}
+          />
+        )
+      })
+    } else {
+      lists = <h3 className="empty-lists">Create a new list to get started!</h3>
+    }
 
     let listForm;
 
