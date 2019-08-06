@@ -4,7 +4,7 @@ class Api::V1::ItemsController < ApplicationController
   before_action :authorize_user
 
   def create
-    item = Item.new(new_item_params)
+    item = Item.new(item_params)
 
     list_for_item = List.find(params[:list_id])
     item.list = list_for_item
@@ -24,9 +24,21 @@ class Api::V1::ItemsController < ApplicationController
     end
   end
 
+  def update
+    item_to_update = Item.find(params["id"])
+    item_to_update.update(item_params)
+
+    if item_to_update.save
+      render json: item_to_update
+    else
+      render json: { error: item_to_update.errors.full_messages }
+    end
+
+  end
+
   private
 
-  def new_item_params
+  def item_params
     params.require(:item).permit(:item_name, :category, :quantity, :measurement)
   end
 

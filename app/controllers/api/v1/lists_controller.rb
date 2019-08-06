@@ -16,7 +16,7 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    list = List.new(new_list_params)
+    list = List.new(list_params)
     list.user = current_user
 
     if list.save
@@ -28,7 +28,7 @@ class Api::V1::ListsController < ApplicationController
 
   def update
     list_to_update = List.find(params["id"])
-    list_to_update.list_name = new_list_params[:list_name]
+    list_to_update.update(list_params)
 
     if list_to_update.save
       render json: list_to_update
@@ -39,7 +39,7 @@ class Api::V1::ListsController < ApplicationController
 
   private
 
-  def new_list_params
+  def list_params
     params.require(:list).permit(:list_name)
   end
 
