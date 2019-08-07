@@ -13,6 +13,7 @@ class EditItemContainer extends React.Component {
       category: "",
       quantity: "1",
       measurement: "",
+      aisle: "",
       errors: {}
     }
 
@@ -33,7 +34,8 @@ class EditItemContainer extends React.Component {
       itemName: this.props.item.item_name,
       category: this.props.item.category,
       quantity: this.props.item.quantity,
-      measurement: this.props.item.measurement
+      measurement: this.props.item.measurement,
+      aisle: this.props.item.aisle
     })
   }
 
@@ -80,7 +82,7 @@ class EditItemContainer extends React.Component {
   }
 
   handleClearForm() {
-    this.setState({ itemName: "", quantity: "1", measurement: "", category: "" })
+    this.setState({ itemName: "", quantity: "1", measurement: "", category: "", aisle: "" })
   }
 
   handleSubmit(event) {
@@ -95,7 +97,8 @@ class EditItemContainer extends React.Component {
         item_name: this.state.itemName,
         category: this.state.category,
         quantity: this.state.quantity,
-        measurement: this.state.measurement
+        measurement: this.state.measurement,
+        aisle: this.state.aisle
       }
       this.props.handleUpdateItem(updatedItemObject)
       this.handleClearForm(event)
@@ -113,33 +116,9 @@ class EditItemContainer extends React.Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
 
-    let categories = [
-      "Fruit",
-      "Vegetables",
-      "Dairy",
-      "Grains",
-      "White Meat/ Poultry",
-      "Red Meat",
-      "Seafood",
-      "Legumes/ Nuts",
-      "Snacks",
-      "Herbs/ Seasoning/ Spices",
-      "Beverages",
-      "Canned Food",
-      "Frozen",
-      "Miscellaneous"]
+    let categories = this.props.categories
 
-    let measurements = [
-      "Can",
-      "Cup",
-      "Dozen",
-      "Gallon",
-      "Ounce",
-      "Package",
-      "Pint",
-      "Pound",
-      "Quart"
-    ]
+    let measurements = this.props.measurements
 
     let categoryOptions = categories.map((category) => {
       return(<option key={category} value={category}>{category}</option>)
@@ -194,6 +173,13 @@ class EditItemContainer extends React.Component {
               </select>
             </label>
           </div>
+
+          <TextField
+            label="Item Ailse or Location:"
+            name="aisle"
+            value={this.state.aisle}
+            handleChange={this.handleChange}
+          />
 
           <input className="button update" type="submit" value="Update" />
         </form>

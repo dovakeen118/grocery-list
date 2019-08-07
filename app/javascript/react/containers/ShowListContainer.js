@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import CategoryTile from '../components/CategoryTile'
 import NewItemFormContainer from '../containers/NewItemFormContainer'
 import EditItemContainer from '../containers/EditItemContainer'
+import ShoppingContainer from '../containers/ShoppingContainer'
 
 class ShowListContainer extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class ShowListContainer extends React.Component {
       selectedList: "",
       items: [],
       editing: false,
-      itemToEdit: {}
+      itemToEdit: {},
+      shopping: false
     }
 
     this.addNewItem = this.addNewItem.bind(this)
@@ -123,24 +125,7 @@ class ShowListContainer extends React.Component {
   }
 
   render() {
-    let itemForm;
-
-    if(this.state.editing) {
-      itemForm = (
-        <EditItemContainer
-        item={this.state.itemToEdit}
-        handleUpdateItem={this.handleUpdateItem}
-        />
-      )
-    } else {
-      itemForm = (
-        <NewItemFormContainer
-        addNewItem={this.addNewItem}
-        />
-      )
-    }
-
-    let categories = [
+    const categories = [
       "Fruit",
       "Vegetables",
       "Dairy",
@@ -155,41 +140,83 @@ class ShowListContainer extends React.Component {
       "Canned Food",
       "Frozen",
       "Miscellaneous"]
+    const measurements = [
+      "Can",
+      "Cup",
+      "Dozen",
+      "Gallon",
+      "Ounce",
+      "Package",
+      "Pint",
+      "Pound",
+      "Quart"
+    ]
 
+    let itemForm;
     let listName = this.state.selectedList
     let items = this.state.items
-
     let categoryTiles;
-    if(items.length == 0) {
-      categoryTiles = <h2 className="callout items">Add items to start your list!</h2>
-    } else {
-      categoryTiles = categories.map((category) => {
-        let categoryItems = items.filter(item => item.category === category)
+    let shoppingContainer;
 
-        if(categoryItems.length > 0) {
-          return(
-            <CategoryTile
-            key={category}
-            name={category}
-            value={categoryItems}
-            toggleItemEdit={this.toggleItemEdit}
-            editState={this.state.editing}
-            itemToEdit={this.state.itemToEdit}
-            confirmItemDelete={this.confirmItemDelete}
-            />
-          )
-        }
-      })
-    };
+    if(this.state.shopping) {
+      shoppingContainer = <ShoppingContainer />
+    } else {
+
+      if(this.state.editing) {
+        itemForm = (
+          <EditItemContainer
+          item={this.state.itemToEdit}
+          categories={categories}
+          measurements={measurements}
+          handleUpdateItem={this.handleUpdateItem}
+          />
+        )
+      } else {
+        itemForm = (
+          <NewItemFormContainer
+          categories={categories}
+          measurements={measurements}
+          addNewItem={this.addNewItem}
+          />
+        )
+      }
+
+
+      if(items.length == 0) {
+        categoryTiles = <h2 className="callout items">Add items to start your list!</h2>
+      } else {
+        categoryTiles = categories.map((category) => {
+          let categoryItems = items.filter(item => item.category === category)
+
+          if(categoryItems.length > 0) {
+            return(
+              <CategoryTile
+              key={category}
+              name={category}
+              value={categoryItems}
+              toggleItemEdit={this.toggleItemEdit}
+              editState={this.state.editing}
+              itemToEdit={this.state.itemToEdit}
+              confirmItemDelete={this.confirmItemDelete}
+              />
+            )
+          }
+        })
+      };
+    }
 
 
     return(
       <div className="list-show">
         <h1>{listName}</h1>
         <h3><Link to="/lists">Back to my lists</Link></h3>
+
+
         <div className="grid-x grid-margin-x">
           <div className="callout show cell small-12 large-6">
             {itemForm}
+
+            {shoppingContainer}
           </div>
 
           <div className="items cell small-12 large-6">

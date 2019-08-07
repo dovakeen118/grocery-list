@@ -1,12 +1,16 @@
 import React from 'react'
 
 const CategoryTile = (props) => {
+let aisleLocation;
 
   let items = props.value.map((item) => {
+    if(item.aisle.length > 0) {
+      aisleLocation = ` - ${item.aisle}`
+    }
     return(
       <p key={item.id}>
         <i className="fa fa-caret-right"></i>
-        {item.quantity} {item.measurement} - {item.item_name}
+        {item.quantity} {item.measurement} - {item.item_name} {aisleLocation}
 
         <i className="fa fa-edit"
           onClick={ () => { props.toggleItemEdit({ item  }) } }
