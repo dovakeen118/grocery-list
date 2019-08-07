@@ -174,6 +174,7 @@ class ShowListContainer extends React.Component {
             value={categoryItems}
             toggleItemEdit={this.toggleItemEdit}
             editState={this.state.editing}
+            itemToEdit={this.state.itemToEdit}
             confirmItemDelete={this.confirmItemDelete}
             />
           )

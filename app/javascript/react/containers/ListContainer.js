@@ -122,6 +122,22 @@ class ListContainer extends React.Component {
   render() {
     let user = this.state.user.first_name
 
+    let listForm;
+    if(this.state.editing) {
+      listForm = (
+        <EditListContainer
+        list={this.state.listToEdit}
+        handleUpdateList={this.handleUpdateList}
+        />
+      )
+    } else {
+      listForm = (
+        <NewListFormContainer
+        addNewList={this.addNewList}
+        />
+      )
+    }
+
     let lists = this.state.lists
     if(lists.length > 0) {
       lists = this.state.lists.map((list) => {
@@ -141,22 +157,6 @@ class ListContainer extends React.Component {
       lists = <h3 className="empty-lists">Create a new list to get started!</h3>
     }
 
-    let listForm;
-
-    if(this.state.editing) {
-      listForm = (
-        <EditListContainer
-          list={this.state.listToEdit}
-          handleUpdateList={this.handleUpdateList}
-        />
-      )
-    } else {
-      listForm = (
-        <NewListFormContainer
-          addNewList={this.addNewList}
-        />
-      )
-    }
 
 
     return(
