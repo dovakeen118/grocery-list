@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import CategoryTile from '../components/CategoryTile'
 import NewItemFormContainer from '../containers/NewItemFormContainer'
@@ -122,8 +123,23 @@ class ShowListContainer extends React.Component {
   }
 
   render() {
-    let listName = this.state.selectedList
-    let items = this.state.items
+    let itemForm;
+
+    if(this.state.editing) {
+      itemForm = (
+        <EditItemContainer
+        item={this.state.itemToEdit}
+        handleUpdateItem={this.handleUpdateItem}
+        />
+      )
+    } else {
+      itemForm = (
+        <NewItemFormContainer
+        addNewItem={this.addNewItem}
+        />
+      )
+    }
+
     let categories = [
       "Fruit",
       "Vegetables",
@@ -140,44 +156,37 @@ class ShowListContainer extends React.Component {
       "Frozen",
       "Miscellaneous"]
 
-    let categoryTiles = categories.map((category) => {
-      let categoryItems = items.filter(item => item.category === category)
+    let listName = this.state.selectedList
+    let items = this.state.items
 
-      if(categoryItems.length > 0) {
-        return(
-          <CategoryTile
+    let categoryTiles;
+    if(items.length == 0) {
+      categoryTiles = <h2 className="callout items">Add items to start your list!</h2>
+    } else {
+      categoryTiles = categories.map((category) => {
+        let categoryItems = items.filter(item => item.category === category)
+
+        if(categoryItems.length > 0) {
+          return(
+            <CategoryTile
             key={category}
             name={category}
             value={categoryItems}
             toggleItemEdit={this.toggleItemEdit}
             editState={this.state.editing}
+            itemToEdit={this.state.itemToEdit}
             confirmItemDelete={this.confirmItemDelete}
-          />
-        )
-      }
-    })
+            />
+          )
+        }
+      })
+    };
 
-    let itemForm;
-
-    if(this.state.editing) {
-      itemForm = (
-        <EditItemContainer
-          item={this.state.itemToEdit}
-          handleUpdateItem={this.handleUpdateItem}
-        />
-      )
-    } else {
-      itemForm = (
-        <NewItemFormContainer
-        addNewItem={this.addNewItem}
-        />
-      )
-    }
 
     return(
       <div className="list-show">
         <h1>{listName}</h1>
-
+        <h3><Link to="/lists">Back to my lists</Link></h3>
         <div className="grid-x grid-margin-x">
           <div className="callout show cell small-12 large-6">
             {itemForm}
