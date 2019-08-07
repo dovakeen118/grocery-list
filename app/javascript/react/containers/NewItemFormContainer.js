@@ -11,6 +11,7 @@ class NewItemFormContainer extends React.Component {
       category: "",
       quantity: "1",
       measurement: "",
+      aisle: "",
       errors: {}
     }
 
@@ -67,7 +68,7 @@ class NewItemFormContainer extends React.Component {
   }
 
   handleClearForm() {
-    this.setState({ newItem: "", quantity: "1", measurement: "", category: "" })
+    this.setState({ newItem: "", category: "", quantity: "1", measurement: "", ailse: "" })
   }
 
   handleSubmit(event) {
@@ -80,7 +81,8 @@ class NewItemFormContainer extends React.Component {
         item_name: this.state.newItem,
         category: this.state.category,
         quantity: this.state.quantity,
-        measurement: this.state.measurement
+        measurement: this.state.measurement,
+        aisle: this.state.aisle
       }
       this.props.addNewItem(newItemObject)
       this.handleClearForm(event)
@@ -98,33 +100,9 @@ class NewItemFormContainer extends React.Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
 
-    let categories = [
-      "Fruit",
-      "Vegetables",
-      "Dairy",
-      "Grains",
-      "White Meat/ Poultry",
-      "Red Meat",
-      "Seafood",
-      "Legumes/ Nuts",
-      "Snacks",
-      "Herbs/ Seasoning/ Spices",
-      "Beverages",
-      "Canned Food",
-      "Frozen",
-      "Miscellaneous"]
+    let categories = this.props.categories
 
-    let measurements = [
-      "Can",
-      "Cup",
-      "Dozen",
-      "Gallon",
-      "Ounce",
-      "Package",
-      "Pint",
-      "Pound",
-      "Quart"
-    ]
+    let measurements = this.props.measurements
 
     let categoryOptions = categories.map((category) => {
       return(<option key={category} value={category}>{category}</option>)
@@ -179,6 +157,13 @@ class NewItemFormContainer extends React.Component {
               </select>
             </label>
           </div>
+
+          <TextField
+            label="Item Ailse or Location:"
+            name="aisle"
+            value={this.state.aisle}
+            handleChange={this.handleChange}
+          />
 
           <input className="button" type="submit" value="Add New item" />
         </form>

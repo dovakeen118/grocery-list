@@ -51,7 +51,7 @@ class Api::V1::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_name, :category, :quantity, :measurement)
+    params.require(:item).permit(:item_name, :category, :quantity, :measurement, :aisle)
   end
 
   def authorize_user
