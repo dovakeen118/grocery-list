@@ -68,7 +68,7 @@ class NewItemFormContainer extends React.Component {
   }
 
   handleClearForm() {
-    this.setState({ newItem: "", category: "", quantity: "1", measurement: "", ailse: "" })
+    this.setState({ newItem: "", category: "", quantity: "1", measurement: "", aisle: "" })
   }
 
   handleSubmit(event) {
