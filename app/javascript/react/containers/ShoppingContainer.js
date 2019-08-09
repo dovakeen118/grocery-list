@@ -45,7 +45,7 @@ class ShoppingContainer extends React.Component {
 
     let aisleTiles;
     if(items.length == 0) {
-      aisleTiles = <h2>Add items to start your list!</h2>
+      aisleTiles = <h2 className="callout">Add items to start your list!</h2>
     } else {
       aisleTiles = aisles.map((aisle) => {
         let aisleItems = items.filter(item => item.aisle === aisle)
