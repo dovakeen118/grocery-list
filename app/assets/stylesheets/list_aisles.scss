@@ -1,0 +1,45 @@
+@import 'colors';
+
+.shopping {
+  max-width: 650px;
+  display: block;
+  margin: auto;
+
+  h3 {
+    max-width: 250px;
+    margin: auto;
+    color: $green;
+    text-align: center;
+
+    i {
+      padding: 10px;
+    }
+  }
+
+  h3:hover {
+    cursor: pointer;
+  }
+
+  .shopping-items {
+    h3 {
+      color: black;
+      font-size: 24px;
+    }
+
+    p {
+      font-family: 'Quicksand';
+      font-size: 20px;
+      display: block;
+
+      i {
+        margin: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      i.fa-check-square {
+        color: $orange;
+      }
+    }
+  }
+}

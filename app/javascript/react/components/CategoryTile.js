@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CategoryTile = (props) => {
-let aisleLocation;
+  let aisleLocation;
 
   let items = props.value.map((item) => {
     if(item.aisle.length > 0) {

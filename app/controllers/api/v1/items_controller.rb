@@ -17,6 +17,10 @@ class Api::V1::ItemsController < ApplicationController
       item.measurement = ""
     end
 
+    if item.aisle == "Optional"
+      item.aisle = ""
+    end
+
     if item.save
       render json: item
     else
@@ -25,13 +29,21 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def update
-    item_to_update = Item.find(params["id"])
-    item_to_update.update(item_params)
+    item = Item.find(params["id"])
+    item.update(item_params)
 
-    if item_to_update.save
-      render json: item_to_update
+    if item.measurement == "Optional"
+      item.measurement = ""
+    end
+
+    if item.aisle == "Optional"
+      item.aisle = ""
+    end
+
+    if item.save
+      render json: item
     else
-      render json: { error: item_to_update.errors.full_messages }
+      render json: { error: item.errors.full_messages }
     end
   end
 
