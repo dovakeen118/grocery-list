@@ -21,6 +21,7 @@ class NewItemFormContainer extends React.Component {
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
     this.handleMeasurementChange = this.handleMeasurementChange.bind(this)
+    this.handleAisleChange = this.handleAisleChange.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -67,6 +68,10 @@ class NewItemFormContainer extends React.Component {
     this.setState({ measurement: event.target.value })
   }
 
+  handleAisleChange(event) {
+    this.setState({ aisle: event.target.value })
+  }
+
   handleClearForm() {
     this.setState({ newItem: "", category: "", quantity: "1", measurement: "", aisle: "" })
   }
@@ -101,13 +106,11 @@ class NewItemFormContainer extends React.Component {
     }
 
     let categories = this.props.categories
-
-    let measurements = this.props.measurements
-
     let categoryOptions = categories.map((category) => {
       return(<option key={category} value={category}>{category}</option>)
     })
 
+    let measurements = this.props.measurements
     let measurementOptions = measurements.map((measurement) => {
       if(this.state.quantity > 1) {
         measurement = measurement.concat("s")
@@ -115,6 +118,11 @@ class NewItemFormContainer extends React.Component {
       } else {
         return(<option key={measurement} value={measurement}>{measurement}</option>)
       }
+    })
+
+    let aisles = this.props.aisles
+    let aisleOptions = aisles.map((aisle) => {
+      return(<option key={aisle} value={aisle}>{aisle}</option>)
     })
 
     return(
@@ -158,12 +166,14 @@ class NewItemFormContainer extends React.Component {
             </label>
           </div>
 
-          <TextField
-            label="Item Ailse or Location:"
-            name="aisle"
-            value={this.state.aisle}
-            handleChange={this.handleChange}
-          />
+          <div className="aisle">
+            <label>Item Aisle or Location:
+              <select value={this.state.aisle} onChange={this.handleAisleChange}>
+                <option>Optional</option>
+                {aisleOptions}
+              </select>
+            </label>
+          </div>
 
           <input className="button" type="submit" value="Add New item" />
         </form>
