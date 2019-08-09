@@ -1,8 +1,21 @@
+@import 'colors';
+
 .home-page {
-  img {
+  max-width: 1000px;
+  max-height: 500px;
+  margin: auto;
+  margin-top: 20px;
+
+  .centered {
+    position: absolute;
+    width: 100%;
     max-width: 1000px;
-    max-height: 550px;
-    display: block;
-    margin: auto;
+    top:  200px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+
+    h1 {
+      color: $beige;
+    }
   }
 }

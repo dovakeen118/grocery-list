@@ -105,9 +105,9 @@
       margin: auto;
       font-family: 'Amatic SC';
       text-align: center;
-      color: white;
-      background-color: #000000;
-      opacity: .6;
+      color: $beige;
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.5);
     }
 
     ul {
