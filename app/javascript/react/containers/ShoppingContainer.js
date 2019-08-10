@@ -27,8 +27,7 @@ class ShoppingContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-      this.setState({ list: responseBody.list })
-      this.setState({ items: responseBody.items })
+      this.setState({ list: responseBody.list, items: responseBody.items })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -49,7 +48,6 @@ class ShoppingContainer extends React.Component {
     } else {
       aisleTiles = aisles.map((aisle) => {
         let aisleItems = items.filter(item => item.aisle === aisle)
-
         if(aisleItems.length > 0) {
           return(
             <AisleTile
