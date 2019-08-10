@@ -15,6 +15,8 @@
     h3 {
       width: 200px;
       text-align: left;
+      font-size: 30px;
+
       i {
         padding: 10px;
       }
@@ -49,10 +51,16 @@
     top: 10px;
     font-family: 'Quicksand';
     max-width: 650px;
-    max-height: 540px;
+    // max-height: 540px;
     margin: auto;
     margin-top: 0px;
     margin-bottom: 50px;
+
+    h2 {
+      font-family: 'Quicksand';
+      text-align: left;
+      font-weight: bold;
+    }
 
     label {
       font-size: 20px;
@@ -90,7 +98,7 @@
   }
 
   .chart {
-    max-width: 650px;
+    max-width: 640px;
     padding: 0px;
     margin: auto;
     position: sticky;
@@ -121,11 +129,12 @@
 
     ul {
       margin-top: 20px;
+      margin-left: 0px;
+      max-width: 600px;
 
       p {
         font-family: 'Quicksand';
         font-size: 20px;
-        list-style: none;
         display: block;
 
         i {

@@ -66,7 +66,7 @@ class ShoppingContainer extends React.Component {
       <div className="shopping">
         <h1>{listName}</h1>
 
-        <h3 onClick={this.props.toggleListView}>
+        <h3 className="link" onClick={this.props.toggleListView}>
           Edit shopping list
           <i className="fa fa-edit"></i>
         </h3>

@@ -143,6 +143,7 @@ class EditItemContainer extends React.Component {
 
     return(
       <div>
+        <h2>Edit item:</h2>
         <form onSubmit={this.handleSubmit}>
 
           {errorDiv}
@@ -167,6 +168,7 @@ class EditItemContainer extends React.Component {
                 className="form-control"
                 min={1}
                 max={50}
+                step={0.5}
                 value={this.state.quantity}
                 onChange={this.handleQuantityChange}
               />

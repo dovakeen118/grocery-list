@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_145058) do
     t.bigint "list_id", null: false
     t.string "item_name", null: false
     t.string "category", default: "", null: false
-    t.integer "quantity", default: 1
+    t.float "quantity", default: 1.0
     t.string "measurement", default: ""
     t.string "aisle", default: ""
     t.integer "price", default: 0

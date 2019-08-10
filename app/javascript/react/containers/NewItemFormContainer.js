@@ -149,8 +149,9 @@ class NewItemFormContainer extends React.Component {
             <label>Item Quantity:
               <NumericInput
                 className="form-control"
-                min={1}
+                min={0}
                 max={50}
+                step={0.5}
                 value={this.state.quantity}
                 onChange={this.handleQuantityChange}
               />
