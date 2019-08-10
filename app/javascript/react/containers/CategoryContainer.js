@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Chart } from 'react-google-charts'
 
 import CategoryTile from '../components/CategoryTile'
 import NewItemFormContainer from '../containers/NewItemFormContainer'
@@ -174,6 +175,29 @@ class CategoryContainer extends React.Component {
       })
     };
 
+    let pieChart;
+    let data = [["Category", "Items"]]
+    let pieSections = categories.map((category) => {
+      let numItems = items.filter(item => item.category === category)
+      numItems = numItems.length
+      let newData = [category, numItems]
+      data.push(newData)
+    })
+
+    if(items.length > 0) {
+      pieChart = (
+        <div className="callout chart">
+          <Chart
+          chartType="PieChart"
+          data={data}
+          graph_id="PieChart"
+          width={"100%"}
+          height={"250px"}
+          />
+        </div>
+      )
+    }
+
     return(
       <div>
         <h1>{listName}</h1>
@@ -185,7 +209,7 @@ class CategoryContainer extends React.Component {
               Back to my lists
             </Link>
           </h3>
-          
+
           <h3 onClick={this.props.toggleListView}>
             Shopping list
             <i className="fa fa-shopping-cart"></i>
@@ -193,8 +217,13 @@ class CategoryContainer extends React.Component {
         </div>
 
         <div className="grid-x grid-margin-x">
-          <div className="callout show cell small-12 large-6">
-            {itemForm}
+          <div className="cell small-12 large-6">
+            <div className="callout show">
+              {itemForm}
+            </div>
+
+              {pieChart}
+
           </div>
 
           <div className="items cell small-12 large-6">

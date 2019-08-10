@@ -17,8 +17,8 @@ class Api::V1::ItemsController < ApplicationController
       item.measurement = ""
     end
 
-    if item.aisle == "Optional"
-      item.aisle = ""
+    if item.aisle == "" || item.aisle == "Optional"
+      item.aisle = "Miscellaneous"
     end
 
     if item.save
