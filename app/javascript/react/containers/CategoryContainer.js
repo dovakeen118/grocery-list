@@ -189,7 +189,7 @@ class CategoryContainer extends React.Component {
         { color: "#D1A18F" },
         { color: "#7b9235" },
         { color: "#ED9A46" },
-        { color: "#ba4945" },
+        { color: "#A02524" },
         { color: "#1779BA" },
         { color: "#b5b5b5" },
         { color: "#7190B1" },

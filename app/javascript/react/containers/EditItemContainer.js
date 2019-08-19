@@ -143,7 +143,7 @@ class EditItemContainer extends React.Component {
 
     return(
       <div>
-        <h2>Edit item:</h2>
+        <h2>Edit item</h2>
         <form onSubmit={this.handleSubmit}>
 
           {errorDiv}
@@ -162,28 +162,6 @@ class EditItemContainer extends React.Component {
             </select>
           </label>
 
-          <div className="quantity">
-            <label>Item Quantity:
-              <NumericInput
-                className="form-control"
-                min={1}
-                max={50}
-                step={0.5}
-                value={this.state.quantity}
-                onChange={this.handleQuantityChange}
-              />
-            </label>
-          </div>
-
-          <div className="measurement">
-            <label>Quantity Measurement:
-              <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
-                <option>Optional</option>
-                {measurementOptions}
-              </select>
-            </label>
-          </div>
-
           <div className="aisle">
             <label>Item Aisle or Location:
               <select value={this.state.aisle} onChange={this.handleAisleChange}>
@@ -192,6 +170,31 @@ class EditItemContainer extends React.Component {
               </select>
             </label>
           </div>
+
+          <div className="quantity-measurement">
+            <div className="quantity">
+              <label>Item Quantity:
+                <NumericInput
+                  className="form-control"
+                  min={1}
+                  max={50}
+                  step={0.5}
+                  value={this.state.quantity}
+                  onChange={this.handleQuantityChange}
+                />
+              </label>
+            </div>
+
+            <div className="measurement">
+              <label>Quantity Measurement:
+                <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
+                  <option>Optional</option>
+                  {measurementOptions}
+                </select>
+              </label>
+            </div>
+          </div>
+
 
           <input className="button update" type="submit" value="Update" />
         </form>
