@@ -51,14 +51,12 @@
     top: 10px;
     font-family: 'Quicksand';
     max-width: 650px;
-    // max-height: 540px;
     margin: auto;
     margin-top: 0px;
     margin-bottom: 50px;
 
     h2 {
       font-family: 'Quicksand';
-      text-align: left;
       font-weight: bold;
     }
 
@@ -67,16 +65,22 @@
       font-weight: bold;
     }
 
-    .quantity {
-      width: 300px;
-      display: inline-grid;
+    .quantity-measurement {
+      display: flex;
+
+      .quantity {
+        max-width: 300px;
+        display: inline-flex;
+        margin: auto;
+      }
+
+      .measurement {
+        max-width: 300px;
+        display: inline-flex;
+        margin: auto;
+      }
     }
 
-    .measurement {
-      width: 300px;
-      display: inline-grid;
-      float: right;
-    }
 
     input.button {
       background-color: $orange;
