@@ -19,34 +19,7 @@ class ShowListContainer extends React.Component {
   }
 
   render() {
-    const categories = [
-      "Fruit",
-      "Vegetables",
-      "Dairy",
-      "Grains",
-      "White Meat/ Poultry",
-      "Red Meat",
-      "Seafood",
-      "Legumes/ Nuts",
-      "Snacks",
-      "Herbs/ Seasoning/ Spices",
-      "Beverages",
-      "Canned Food",
-      "Frozen",
-      "Miscellaneous"]
-    const measurements = [
-      "Box",
-      "Can",
-      "Cup",
-      "Dozen",
-      "Gallon",
-      "Ounce",
-      "Package",
-      "Pint",
-      "Pound",
-      "Quart"
-    ]
-    let aisleLocations = ["Produce", "Dairy", "Deli", "Freezer", "Miscellaneous"]
+    let aisleLocations = ["Produce", "Bakery", "Dairy", "Deli", "Freezer", "Miscellaneous"]
     let aisleNumbers = Array.from(Array(30).keys())
     aisleNumbers.shift()
     aisleNumbers = aisleNumbers.map((num) => {
@@ -69,8 +42,6 @@ class ShowListContainer extends React.Component {
       display = (
         <CategoryContainer
           params={params}
-          categories={categories}
-          measurements={measurements}
           aisles={aisles}
           toggleListView={this.toggleListView}
         />

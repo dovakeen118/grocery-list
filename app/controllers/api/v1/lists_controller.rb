@@ -11,7 +11,10 @@ class Api::V1::ListsController < ApplicationController
   def show
     list = List.find(params["id"])
     items = list.items
-    render json: { list: list, items: items }
+    categories = Item::CATEGORIES
+    measurements = Item::MEASUREMENTS
+
+    render json: { list: list, items: items, categories: categories, measurements: measurements }
   end
 
   def create
