@@ -12,6 +12,8 @@ class CategoryContainer extends React.Component {
     this.state = {
       list: {},
       items: [],
+      categories: [],
+      measurements: [],
       editing: false,
       itemToEdit: {}
     }
@@ -39,8 +41,12 @@ class CategoryContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-      this.setState({ list: responseBody.list })
-      this.setState({ items: responseBody.items })
+      this.setState({
+        list: responseBody.list,
+        items: responseBody.items,
+        categories: responseBody.categories,
+        measurements: responseBody.measurements
+      })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -126,8 +132,8 @@ class CategoryContainer extends React.Component {
   render() {
     let listName = this.state.list.list_name
     let items = this.state.items
-    let categories = this.props.categories
-    let measurements = this.props.measurements
+    let categories = this.state.categories
+    let measurements = this.state.measurements
     let aisles = this.props.aisles
 
     let itemForm;
