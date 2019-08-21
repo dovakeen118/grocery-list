@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Chart } from 'react-google-charts'
 
 import CategoryTile from '../components/CategoryTile'
+import PieChart from '../components/PieChart'
 import NewItemFormContainer from '../containers/NewItemFormContainer'
 import EditItemContainer from '../containers/EditItemContainer'
 
@@ -212,16 +213,19 @@ class CategoryContainer extends React.Component {
 
     if(items.length > 0) {
       pieChart = (
-        <div className="callout chart">
-          <Chart
-            chartType="PieChart"
-            graph_id="PieChart"
-            width={"100%"}
-            height={"250px"}
-            data={data}
-            options={options}
-          />
-        </div>
+        <PieChart
+          
+        />
+        // <div className="callout chart">
+        //   <Chart
+        //     chartType="PieChart"
+        //     graph_id="PieChart"
+        //     width={"100%"}
+        //     height={"250px"}
+        //     data={data}
+        //     options={options}
+        //   />
+        // </div>
       )
     }
 
