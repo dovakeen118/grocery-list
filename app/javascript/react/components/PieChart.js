@@ -3,6 +3,9 @@ import React from 'react'
 import { Chart } from 'react-google-charts'
 
 const PieChart = (props) => {
+  let categories = props.categories
+  let items = props.items
+
   let data = [["Category", "Items"]]
   let options = {
     pieHole: 0.2,
@@ -23,6 +26,13 @@ const PieChart = (props) => {
       { color: "#6A425D" },
     ]
   }
+
+  let pieSections = categories.map((category) => {
+    let numItems = items.filter(item => item.category === category)
+    numItems = numItems.length
+    let newData = [category, numItems]
+    data.push(newData)
+  })
 
   return(
     <div className="callout chart">
