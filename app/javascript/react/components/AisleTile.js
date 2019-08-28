@@ -12,12 +12,12 @@ const AisleTile = (props) => {
     }
     return(
       <div key={item.id}>
-        <p>
-          <i className={iconClass}
-            onClick={ () => {props.addSelectedItems({ item }) } }>
-          </i>
-          {item.quantity} {item.measurement} - {item.item_name}
-        </p>
+        <i className={iconClass}
+          onClick={ () => {props.addSelectedItems({ item }) } }>
+        </i>
+
+        <p>{item.quantity} {item.measurement} - {item.item_name}</p>
+
         <hr/>
       </div>
     )

@@ -73,7 +73,7 @@ class EditListContainer extends React.Component {
           {errorDiv}
 
           <TextField
-            label="List Name:"
+            label="List Name"
             name="listName"
             value={this.state.listName}
             handleChange={this.handleChange}

@@ -12,14 +12,16 @@ const ListTile = (props) => {
   }
 
   return (
-    <h3>
-      <i className="fa fa-caret-right"></i>
+    <div>
+      <i className="fa fa-caret-right fa-2x"></i>
 
-      <Link to={`/lists/${props.id}`} className={editClass}>
-        {props.name} {editMessage}
-      </Link>
+      <h3>
+        <Link to={`/lists/${props.id}`} className={editClass}>
+          {props.name} {editMessage}
+        </Link>
+      </h3>
 
-      <i className="fa fa-edit"
+      <i className="fa fa-edit fa-2x"
         onClick={ () => { props.toggleListEdit({ id: props.id, name: props.name  }) } }
         data-tooltip tabIndex="1"
         title={`Edit ${props.name}`}
@@ -27,7 +29,7 @@ const ListTile = (props) => {
         data-alignment="right">
       </i>
 
-      <i className="fa fa-minus-square"
+      <i className="fa fa-minus-square fa-2x"
         onClick={ () => { props.confirmListDelete({ props }) } }
         data-tooltip tabIndex="1"
         title={`Delete ${props.name}`}
@@ -35,7 +37,7 @@ const ListTile = (props) => {
         data-alignment="right">
       </i>
       <hr/>
-    </h3>
+    </div>
   )
 }
 

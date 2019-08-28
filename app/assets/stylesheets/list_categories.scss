@@ -131,30 +131,34 @@
       background: rgba(0, 0, 0, 0.5);
     }
 
-    ul {
+    .items {
+      display: grid;
       margin-top: 20px;
       margin-left: 0px;
       max-width: 600px;
 
       p {
+        display: inline-flex;
+        max-width: 450px;
         font-family: 'Quicksand';
         font-size: 20px;
-        display: block;
+      }
 
-        i {
-          float: right;
-          cursor: pointer;
-          margin: 10px;
-        }
+      i {
+        display: inline-flex;
+        max-width: 20px;
+        margin: 10px;
+        float: right;
+        cursor: pointer;
+      }
 
-        i.fa.fa-caret-right {
-          float: left;
-          margin-top: 7px;
-        }
+      i.fa.fa-caret-right {
+        float: left;
+        margin-top: 7px;
+      }
 
-        i.fa-edit:hover, i.fa-minus-square:hover {
-          font-weight: bold;
-        }
+      i.fa-edit:hover, i.fa-minus-square:hover {
+        font-weight: bold;
       }
     }
   }

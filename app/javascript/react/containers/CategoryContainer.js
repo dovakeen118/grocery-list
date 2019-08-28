@@ -141,20 +141,20 @@ class CategoryContainer extends React.Component {
     if(this.state.editing) {
       itemForm = (
         <EditItemContainer
-        item={this.state.itemToEdit}
-        categories={categories}
-        measurements={measurements}
-        aisles={aisles}
-        handleUpdateItem={this.handleUpdateItem}
+          item={this.state.itemToEdit}
+          categories={categories}
+          measurements={measurements}
+          aisles={aisles}
+          handleUpdateItem={this.handleUpdateItem}
         />
       )
     } else {
       itemForm = (
         <NewItemFormContainer
-        categories={categories}
-        measurements={measurements}
-        aisles={aisles}
-        addNewItem={this.addNewItem}
+          categories={categories}
+          measurements={measurements}
+          aisles={aisles}
+          addNewItem={this.addNewItem}
         />
       )
     }
@@ -188,6 +188,7 @@ class CategoryContainer extends React.Component {
         <PieChart
           categories={categories}
           items={items}
+          title="Total Item Breakdown by Category"
         />
       )
     }

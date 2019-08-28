@@ -30,19 +30,21 @@
     }
 
     p {
+      display: inline;
       font-family: 'Quicksand';
       font-size: 20px;
-      display: block;
+    }
 
-      i {
-        margin: 10px;
-        margin-top: 10px;
-        cursor: pointer;
-      }
+    i {
+      display: inline;
+      max-width: 30px;
+      margin: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
 
-      i.fa-check-square {
-        color: $orange;
-      }
+    i.fa-check-square {
+      color: $orange;
     }
   }
 }

@@ -9,6 +9,7 @@ const PieChart = (props) => {
   let data = [["Category", "Items"]]
   let options = {
     pieHole: 0.2,
+    title: props.title,
     slices: [
       { color: "#ba4945" },
       { color: "#42530e" },
@@ -23,6 +24,7 @@ const PieChart = (props) => {
       { color: "#1779BA" },
       { color: "#b5b5b5" },
       { color: "#7190B1" },
+      { color: "#968cc5" },
       { color: "#6A425D" },
     ]
   }

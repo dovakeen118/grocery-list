@@ -66,7 +66,7 @@ class NewListFormContainer extends React.Component {
           {errorDiv}
 
           <TextField
-            label="New List Name:"
+            label="New List Name"
             name="listName"
             value={this.state.listName}
             handleChange={this.handleChange}
