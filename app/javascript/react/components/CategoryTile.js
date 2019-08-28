@@ -8,9 +8,10 @@ const CategoryTile = (props) => {
       aisleLocation = ` - ${item.aisle}`
     }
     return(
-      <p key={item.id}>
+      <div key={item.id}>
         <i className="fa fa-caret-right"></i>
-        {item.quantity} {item.measurement} - {item.item_name} {aisleLocation}
+
+        <p> {item.quantity} {item.measurement} - {item.item_name} {aisleLocation}</p>
 
         <i className="fa fa-edit"
           onClick={ () => { props.toggleItemEdit({ item  }) } }
@@ -27,16 +28,16 @@ const CategoryTile = (props) => {
           data-position="bottom"
           data-alignment="right">
         </i>
-      </p>
+      </div>
     )
   })
 
   return(
     <div className={`callout items ${props.name}`}>
       <h1>{props.name}</h1>
-      <ul>
+      <div className="items">
         {items}
-      </ul>
+      </div>
     </div>
   )
 }

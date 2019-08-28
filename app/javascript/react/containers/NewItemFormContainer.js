@@ -132,13 +132,13 @@ class NewItemFormContainer extends React.Component {
           {errorDiv}
 
           <TextField
-            label="Item Name:"
+            label="Item Name *"
             name="newItem"
             value={this.state.newItem}
             handleChange={this.handleChange}
           />
 
-          <label>Item Category:
+          <label>Item Category *
             <select value={this.state.category} onChange={this.handleCategoryChange}>
               <option>Please select a category</option>
               {categoryOptions}
@@ -146,7 +146,7 @@ class NewItemFormContainer extends React.Component {
           </label>
 
           <div className="aisle">
-            <label>Item Aisle or Location:
+            <label>Item Aisle or Location
               <select value={this.state.aisle} onChange={this.handleAisleChange}>
                 <option>Optional</option>
                 {aisleOptions}
@@ -156,7 +156,7 @@ class NewItemFormContainer extends React.Component {
 
           <div className="quantity-measurement">
             <div className="quantity">
-              <label>Item Quantity:
+              <label>Item Quantity
                 <NumericInput
                   className="form-control"
                   min={0}
@@ -169,7 +169,7 @@ class NewItemFormContainer extends React.Component {
             </div>
 
             <div className="measurement">
-              <label>Quantity Measurement:
+              <label>Quantity Measurement
                 <select value={this.state.measurement} onChange={this.handleMeasurementChange}>
                   <option>Optional</option>
                   {measurementOptions}

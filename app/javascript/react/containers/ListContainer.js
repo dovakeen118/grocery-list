@@ -126,14 +126,14 @@ class ListContainer extends React.Component {
     if(this.state.editing) {
       listForm = (
         <EditListContainer
-        list={this.state.listToEdit}
-        handleUpdateList={this.handleUpdateList}
+          list={this.state.listToEdit}
+          handleUpdateList={this.handleUpdateList}
         />
       )
     } else {
       listForm = (
         <NewListFormContainer
-        addNewList={this.addNewList}
+          addNewList={this.addNewList}
         />
       )
     }
@@ -156,8 +156,6 @@ class ListContainer extends React.Component {
     } else {
       lists = <h3 className="empty-lists">Create a new list to get started!</h3>
     }
-
-
 
     return(
       <div className="lists">

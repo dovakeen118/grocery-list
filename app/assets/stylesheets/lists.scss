@@ -61,11 +61,8 @@ h1 {
     padding-top: 16px;
 
     h3 {
+      display: inline-flex;
       text-align: left;
-
-      i {
-        margin-right: 10px;
-      }
 
       a {
         font-family: 'Quicksand';
@@ -80,20 +77,26 @@ h1 {
         font-style: italic;
         color: $green;
       }
-
-      i.fa-edit, i.fa-minus-square {
-        padding-top: 10px;
-        float: right;
-        cursor: pointer;
-      }
-
-      i.fa-edit:hover, i.fa-minus-square:hover {
-        font-weight: bold;
-      }
     }
 
     h3.empty-lists {
       text-align: center;
+    }
+
+    i {
+      display: inline-flex;
+      max-width: 50px;
+      margin-right: 10px;
+    }
+
+    i.fa-edit, i.fa-minus-square {
+      padding-top: 10px;
+      float: right;
+      cursor: pointer;
+    }
+
+    i.fa-edit:hover, i.fa-minus-square:hover {
+      font-weight: bold;
     }
   }
 }

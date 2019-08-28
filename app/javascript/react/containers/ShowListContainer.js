@@ -50,9 +50,7 @@ class ShowListContainer extends React.Component {
 
     return(
       <div className="list-show">
-
         {display}
-
       </div>
     )
   }
