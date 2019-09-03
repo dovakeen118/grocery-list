@@ -1,26 +1,27 @@
-# README
-
 [![Codeship Status for dovakeen118/grocery-list](https://app.codeship.com/projects/f918eb20-8abc-0137-fe48-4a2b1c33cef4/status?branch=master)](https://app.codeship.com/projects/354863)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+Cart Curator is a grocery list application to help users be more mindful about their decisions at the grocery store. Once a user has created an account, they can save grocery lists in the app for different stores. When adding an item, a category selection is required. First, items are displayed by category so the user can visualize their food choices - accompanied by a pie chart from Google Charts API. Items can optionally save information about quantity to purchase and aisle location. Once the user has finished adding their items, they can switch to the shopping view. The shopping view is mobile browser friendly and sorts items based on aisle location. As they are shopping, users can check items off as they go.
 
-* Ruby version
+Visit Cart Curator: https://cart-curator.herokuapp.com/
 
-* System dependencies
+## Getting Started
 
-* Configuration
+After you fork, clone, or download the repo, execute the following commands to run the application locally:
+```
+bundle install
+yarn install
+```
 
-* Database creation
+To build the database:
+```
+rake db:create
+rake db:migrate
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run the following commands to view the app in development locally at https://localhost:3000/
+```
+rails s
+yarn start
+```
