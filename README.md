@@ -10,6 +10,7 @@ Visit Cart Curator: https://cart-curator.herokuapp.com/
 ```
 Ruby version 2.4.5
 Rails version 5.2.3
+Bundler version 2.0.2
 ```
 
 ## Getting Started
