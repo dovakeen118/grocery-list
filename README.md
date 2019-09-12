@@ -6,6 +6,12 @@ Cart Curator is a grocery list application to help users be more mindful about t
 
 Visit Cart Curator: https://cart-curator.herokuapp.com/
 
+## Setup
+```
+Ruby version 2.4.5
+Rails version 5.2.3
+```
+
 ## Getting Started
 
 After you fork, clone, or download the repo, execute the following commands to run the application locally:
@@ -25,3 +31,10 @@ Run the following commands to view the app in development locally at https://loc
 rails s
 yarn start
 ```
+
+## In Progress
+
+* Grocery item nutritional facts
+* Kitchen and pantry databse for users
+* Add contributors to your grocery lists
+* Drag-and-drop aisles in the shopping view
