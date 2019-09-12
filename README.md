@@ -27,11 +27,12 @@ rake db:create
 rake db:migrate
 ```
 
-Run the following commands to view the app in development locally at https://localhost:3000/
+Run the following commands in separate terminal windows:
 ```
 rails s
 yarn start
 ```
+View the app in development locally at https://localhost:3000/
 
 ## In Progress
 
