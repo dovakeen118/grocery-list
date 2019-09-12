@@ -17,24 +17,24 @@ Bundler version 2.0.2
 
 After you fork, clone, or download the repo, execute the following commands to run the application locally:
 ```
-bundle install
-yarn install
+$ bundle install
+$ yarn install
 ```
 
-To build the database:
+To build the PostgreSQL database:
 ```
-rake db:create
-rake db:migrate
+$ rake db:create
+$ rake db:migrate
 ```
 
+To view the app in development locally at https://localhost:3000/
 Run the following commands in separate terminal windows:
 ```
-rails s
-yarn start
+$ rails s
+$ yarn start
 ```
-View the app in development locally at https://localhost:3000/
 
-## In Progress
+## In Progress Features
 
 * Grocery item nutritional facts
 * Kitchen and pantry databse for users
