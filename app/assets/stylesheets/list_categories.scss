@@ -13,17 +13,27 @@
     grid-gap: 10px;
 
     h3 {
-      width: 200px;
-      text-align: left;
+      color: $green;
+      max-width: 200px;
       font-size: 30px;
-
-      i {
-        padding: 10px;
-      }
+      display: inline;
     }
 
-    h3:hover {
+    i {
+      color: $green;
+      padding: 10px;
+      display: inline;
+
+    }
+
+    h3:hover, i:hover {
       cursor: pointer;
+    }
+  }
+
+  .option-list:active, .option-shopping:active {
+    h3, i {
+      color: $orange;
     }
   }
 

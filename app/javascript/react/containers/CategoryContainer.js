@@ -198,17 +198,17 @@ class CategoryContainer extends React.Component {
         <h1>{listName}</h1>
 
         <div className="list-toggle">
-          <h3>
+          <div className="option-list">
             <Link to="/lists">
-              <i className="fa fa-bars"></i>
-              Back to my lists
+              <i className="fa fa-bars fa-2x"></i>
+              <h3>Back to my lists</h3>
             </Link>
-          </h3>
+          </div>
 
-          <h3 onClick={this.props.toggleListView}>
-            Shopping list
-            <i className="fa fa-shopping-cart"></i>
-          </h3>
+          <div className="option-shopping" onClick={this.props.toggleListView}>
+            <h3>Shopping view</h3>
+            <i className="fa fa-shopping-cart fa-2x"></i>
+          </div>
         </div>
 
         <div className="grid-x grid-margin-x">
