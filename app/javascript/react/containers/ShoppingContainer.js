@@ -66,10 +66,10 @@ class ShoppingContainer extends React.Component {
       <div className="shopping">
         <h1>{listName}</h1>
 
-        <h3 className="link" onClick={this.props.toggleListView}>
-          Edit shopping list
-          <i className="fa fa-edit"></i>
-        </h3>
+        <div className="link" onClick={this.props.toggleListView}>
+          <h3>Edit shopping list</h3>
+          <i className="fa fa-edit fa-2x"></i>
+        </div>
 
         <div>
           {aisleTiles}

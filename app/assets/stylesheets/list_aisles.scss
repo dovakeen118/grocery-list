@@ -5,20 +5,33 @@
   display: block;
   margin: auto;
 
-  h3.link {
-    max-width: 250px;
+  .link {
+    max-width: 200px;
+    display: block;
     margin: auto;
-    color: $green;
-    font-size: 30px;
     text-align: center;
+    color: $green;
+
+    h3 {
+      font-size: 30px;
+      display: inline-block;
+      margin: auto;
+    }
 
     i {
       padding: 10px;
+      padding-right: 0px;
     }
   }
 
-  h3.link:hover {
+  .link:hover {
     cursor: pointer;
+  }
+
+  .link:active {
+    h3, i {
+      color: $orange;
+    }
   }
 
   .shopping-items {
