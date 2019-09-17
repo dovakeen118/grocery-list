@@ -178,6 +178,7 @@ class NewItemFormContainer extends React.Component {
             </div>
           </div>
 
+          <p>* Required</p>
 
           <input className="button" type="submit" value="Add New item" />
         </form>

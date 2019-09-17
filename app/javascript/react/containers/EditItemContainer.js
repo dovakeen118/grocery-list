@@ -195,6 +195,7 @@ class EditItemContainer extends React.Component {
             </div>
           </div>
 
+          <p>* Required</p>
 
           <input className="button update" type="submit" value="Update" />
         </form>
