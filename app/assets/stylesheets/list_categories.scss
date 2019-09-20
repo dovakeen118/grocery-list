@@ -5,6 +5,22 @@
   max-width: 95%;
   margin: auto;
 
+  .list-name {
+    display: block;
+    margin: auto;
+    text-align: center;
+
+    h1 {
+      display: inline-block;
+      margin: auto;
+    }
+
+    i {
+      color: black;
+      padding: 5px;
+    }
+  }
+
   .list-toggle {
     max-width: 400px;
     margin: auto;

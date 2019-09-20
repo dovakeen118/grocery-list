@@ -1,0 +1,50 @@
+@import 'colors';
+
+.about-page {
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+
+  h3, h4, p {
+    font-family: 'Quicksand';
+  }
+
+  h3, h4 {
+    font-weight: bold;
+  }
+
+  h4 {
+    font-style: italic;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  .steps, .features {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .soon {
+    i {
+      color: $green;
+      max-width: 40px;
+      padding: 10px;
+      display: inline;
+    }
+
+    h3 {
+      display: inline;
+    }
+
+    .right {
+      text-align: right;
+    }
+  }
+}

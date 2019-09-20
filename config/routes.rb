@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :about, only: [:index]
   resources :lists, only: [:index, :show, :edit]
 
   namespace :api do

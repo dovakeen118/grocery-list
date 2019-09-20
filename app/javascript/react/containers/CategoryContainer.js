@@ -195,7 +195,17 @@ class CategoryContainer extends React.Component {
 
     return(
       <div>
-        <h1>{listName}</h1>
+        <div className="list-name">
+          <h1>{listName}</h1>
+          <a href="/about">
+            <i className="fa fa-question-circle"
+              data-tooltip tabIndex="1"
+              title="About Cart Curator"
+              data-position="bottom"
+              data-alignment="right">
+            </i>
+          </a>
+        </div>
 
         <div className="list-toggle">
           <div className="option-list">
