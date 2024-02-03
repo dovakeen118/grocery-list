@@ -6,7 +6,7 @@
     "yarn": ">=0.25.2"
   },
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "5.4",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-react": "~6.24.1",
     "prop-types": "~15.6.0",
